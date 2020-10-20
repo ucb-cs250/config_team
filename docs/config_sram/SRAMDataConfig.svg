@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   id="SRAMDataConfig" width="100%" height="100%"  viewBox="-6 -6 902 1094">
+<desc>
+XCircuit Version 3.10
+File "SRAMDataConfig.ps" Page 1
+</desc>
+<g stroke="black">
+<g transform="matrix(   1    0   -0    1 352 464)" fill="#000000" >
+<text stroke="none" font-family="Helvetica" font-size="40" ><tspan x="0" y="0">W_ADDR</tspan>
+</text></g>
+<g transform="matrix(   1    0   -0    1 352 656)" fill="#000000" >
+<text stroke="none" font-family="Helvetica" font-size="40" ><tspan x="0" y="0">W_DATA</tspan>
+</text></g>
+<g transform="matrix(   1    0   -0    1 352 800)" fill="#000000" >
+<text stroke="none" font-family="Helvetica" font-size="40" ><tspan x="0" y="0">W_EN</tspan>
+</text></g>
+<path d="M320,400 L224,400 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M320,432 L224,432 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M320,464 L224,464 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M320,496 L224,496 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M320,624 L224,624 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M320,656 L224,656 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M320,784 L224,784 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M320,688 L224,688 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M224,592 L320,592 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M160,384 L160,416 224,416 224,384 z" fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M224,416 L224,448 160,448 160,416 z" fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M160,448 L160,480 224,480 224,448 z" fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M224,480 L224,512 160,512 160,480 z" fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M224,576 L224,608 160,608 160,576 z" fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M160,608 L160,640 224,640 224,608 z" fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M224,640 L224,672 160,672 160,640 z" fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M160,672 L160,704 224,704 224,672 z" fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M192,576 L192,512 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M192,704 L192,976 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<g transform="matrix(   1    0   -0    1 560 304)" fill="#000000" >
+<text stroke="none" font-family="Helvetica" font-size="40" ><tspan x="-184" y="0">SRAM Native-Width</tspan>
+</text></g>
+<g transform="matrix(   1    0   -0    1 560 352)" fill="#000000" >
+<text stroke="none" font-family="Helvetica" font-size="40" ><tspan x="-95" y="0">Write Port</tspan>
+</text></g>
+<path d="M320,240 L320,848 800,848 800,240 z" fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M224,784 L208,784 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M176,784 L96,784 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M96,784 L96,976 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M96,784 L96,112 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M192,384 L192,112 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M0,144 L0,944 896,944 896,144 z" fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<g transform="matrix(   1    0   -0    1 576 208)" fill="#000000" >
+<text stroke="none" font-family="Helvetica" font-size="40" ><tspan x="-96" y="0">SRAM Tile</tspan>
+</text></g>
+<path d="M0,0 L0,48 896,48 896,0 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M0,1088 L0,1040 896,1040 896,1088 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M96,112 L96,16 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M192,112 L192,16 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M96,976 L96,1072 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M192,1072 L192,976 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+</g>
+</svg>
