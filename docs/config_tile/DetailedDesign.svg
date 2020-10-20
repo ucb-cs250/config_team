@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    version="1.1"
-   id="DetailedDeisign" width="100%" height="100%"  viewBox="-6 -6 2215 1040">
+   id="DetailedDeisign" width="100%" height="100%"  viewBox="-6 -6 2215 963">
 <desc>
 XCircuit Version 3.10
-File "DetailedDesign.ps" Page 1
+File "Workspace/config_team/docs/config_tile/DetailedDesign.ps" Page 1
 </desc>
 <g stroke="black">
 <path d="M703,573 L703,349 719,349 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
@@ -28,7 +28,6 @@ File "DetailedDesign.ps" Page 1
 <path d="M1231,845 A48,48 0 0,0 1231,749 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
 <path d="M1343,701 L1343,797 1279,797 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
 <path d="M1167,781 L415,781 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
-<path d="M1167,813 L767,813 767,957 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
 <path d="M767,813 L767,797 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
 <path d="M767,765 L767,701 799,701 799,573 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
 <path d="M607,349 L607,253 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
@@ -113,10 +112,6 @@ File "DetailedDesign.ps" Page 1
 <path d="M1471,125 L1471,93 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
 <path d="M1535,125 L1535,93 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
 <path d="M1951,461 L1919,461 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
-<path d="M767,989 L767,957 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
-<g transform="matrix(   1    0   -0    1 767 1021)" fill="#000000" >
-<text stroke="none" font-family="Helvetica" font-size="40" ><tspan x="-39" y="13">CLK</tspan>
-</text></g>
 <path d="M1087,781 L1087,717 1327,717 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
 <path d="M1359,717 L1695,717 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
 <g transform="matrix(   1    0   -0    1 863  13)" fill="#000000" >
@@ -166,5 +161,16 @@ File "DetailedDesign.ps" Page 1
 <g transform="matrix(   1    0   -0    1 319 349)" fill="#000000" >
 <text stroke="none" font-family="Helvetica" font-size="40" ><tspan x="-216" y="0">SET_HARD</tspan>
 </text></g>
+<path d="M479,925 L415,925 415,829 479,829 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M479,925 A48,48 0 0,0 479,829 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<g transform="matrix(   1    0   -0    1 319 861)" fill="#000000" >
+<text stroke="none" font-family="Helvetica" font-size="40" ><tspan x="-82" y="0">CEN</tspan>
+</text></g>
+<g transform="matrix(   1    0   -0    1 319 925)" fill="#000000" >
+<text stroke="none" font-family="Helvetica" font-size="40" ><tspan x="-78" y="0">CLK</tspan>
+</text></g>
+<path d="M415,909 L351,909 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M415,845 L351,845 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
+<path d="M527,877 L767,877 767,829 767,813 1167,813 " fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-linecap="round" stroke="#000000" />
 </g>
 </svg>
