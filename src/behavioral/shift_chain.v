@@ -7,18 +7,18 @@ module shift_bit (
     input shift_in,
     output shift_out
 );
-    reg bit;
-    assign shift_out = bit;
+    reg config_bit;
+    assign shift_out = config_bit;
 
     always @(posedge clk) begin
         if (rst == 1'b0) begin
             if (shift_enable == 1'b1) begin
-                bit <= shift_in;
+                config_bit <= shift_in;
             end else begin
-                bit <= bit;
+                config_bit <= config_bit;
             end
         end
-        else data <= 1'b0;
+        else config_bit <= 1'b0;
     end
 endmodule
 
@@ -52,7 +52,7 @@ module shift_chain #(
             );
             assign shift_out = intermediate[LENGTH - 1];
         end
-        if (length > 1) begin
+        if (LENGTH > 1) begin
             for (genvar i = 1; i < LENGTH; i = i + 1) begin
                 shift_bit shift_bit_i (
                     .clk(clk),
