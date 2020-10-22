@@ -33,9 +33,9 @@ module shift_chain #(
     input shift_in,
     output shift_out,
 
-    output [0:LENGTH-1] config_data
+    output [LENGTH-1:0] config_data
 );
-    wire [0:LENGTH-1] intermediate;
+    wire [LENGTH-1:0] intermediate;
 
     assign config_data = intermediate;
 
