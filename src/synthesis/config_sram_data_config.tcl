@@ -1,10 +1,10 @@
 # Design
 set ::env(DESIGN_NAME) "config_sram_data"
 
-set ::env(VERILOG_FILES) [glob $::env(OPENLANE_ROOT)/designs/config_team/src/behavioral/config_sram_data.v]
+set ::env(VERILOG_FILES) [glob $::env(OPENLANE_ROOT)/designs/config_team/src/behavioral/*.v]
 
 set ::env(CLOCK_PERIOD) "1.0"
-set ::env(CLOCK_PORT) "clk"
+set ::env(CLOCK_PORT) "cclk"
 
 set ::env(RUN_MAGIC) 1
 set ::env(RUN_ROUTING_DETAILED) 1

@@ -1,4 +1,3 @@
-`include "REGISTER.v"
 module config_tile #(
   parameter comb_N = 7,
   parameter mem_N = 7
