@@ -10,7 +10,7 @@ module config_tile_tb_top;
   reg [6:0] prev_stored_mem;
 
   wire [13:0] test_sequence = 56'b10101011010000111111110100101010001110011001010100010101;
-  tile_config DUT(
+  config_tile DUT(
     .clk(clk), 
     .comb_config(cconfig), 
     .mem_config(mconfig), 
