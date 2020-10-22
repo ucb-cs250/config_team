@@ -53,7 +53,7 @@ module shift_chain #(
             assign shift_out = intermediate[LENGTH - 1];
         end
         if (LENGTH > 1) begin
-            for (genvar i = 1; i < LENGTH; i = i + 1) begin
+            for (i = 1; i < LENGTH; i = i + 1) begin
                 shift_bit shift_bit_i (
                     .clk(clk),
                     .rst(rst),

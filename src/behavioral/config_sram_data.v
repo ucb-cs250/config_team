@@ -1,4 +1,4 @@
-`include "./shift_chain.v"
+`include "./src/behavioral/shift_chain.v"
 
 module config_sram_data #(
     parameter ADDR_BITS = 8,
