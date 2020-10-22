@@ -1,7 +1,7 @@
 # Design
 set ::env(DESIGN_NAME) "config_tile"
 
-set ::env(VERILOG_FILES) [$::env(OPENLANE_ROOT)/designs/config_team/src/behavioral/config_tile.v]
+set ::env(VERILOG_FILES) [glob $::env(OPENLANE_ROOT)/designs/config_team/src/behavioral/config_tile.v]
 
 set ::env(CLOCK_PERIOD) "1.0"
 set ::env(CLOCK_PORT) "clk"
