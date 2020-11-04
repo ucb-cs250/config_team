@@ -1,6 +1,7 @@
 `timescale 1ns/1ps
 
 `include "./src/behavioral/config_sram_data.v"
+`include "./src/behavioral/shift_chain.v"
 
 module WOM8X255 (
     input clk,
