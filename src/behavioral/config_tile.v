@@ -1,13 +1,13 @@
 module config_tile #(
-    parameter comb_N = 7,
-    parameter mem_N = 7
+    parameter COMB_N = 7,
+    parameter MEM_N = 7
 ) (
     input clk,
     input rst,
     input shift_enable,
 
-    output [comb_N-1:0] comb_config,
-    output [mem_N-1:0] mem_config,
+    output [COMB_N-1:0] comb_config,
+    output [MEM_N-1:0] mem_config,
     output comb_set,
     output mem_set,
 
@@ -28,6 +28,7 @@ module config_tile #(
     assign set_internal = input_mux ? set_soft : set_hard;
 
     assign mem_set = (~mem_ctrl) & set_internal;
+    assign comb_set = set_internal;
 
     wire [1:0] internal_config_inter;
 
@@ -37,21 +38,21 @@ module config_tile #(
         .set(set_internal),
 
         .shifter_data(internal_config_inter),
-        .config_bits({input_mux, mem_ctrl})
+        .config_bits({mem_ctrl, input_mux})
     );
 
     wire comb_mem_bridge;
 
-    shift_chain #(.LENGTH(comb_N + 2)) comb_shifter (
+    shift_chain #(.LENGTH(COMB_N + 2)) comb_shifter (
         .clk(clk),
         .rst(rst),
         .shift_enable(shift_enable),
         .shift_in(shift_in_internal),
         .shift_out(comb_mem_bridge),
-        .config_data({internal_config_inter, comb_config})
+        .config_data({comb_config, internal_config_inter})
     );
 
-    shift_chain #(.LENGTH(mem_N)) mem_shifter (
+    shift_chain #(.LENGTH(MEM_N)) mem_shifter (
         .clk(clk),
         .rst(rst),
         .shift_enable(shift_enable),

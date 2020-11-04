@@ -1,4 +1,5 @@
 a.out
 *.gcd
+*.vcd
 config.tcl
 runs/
