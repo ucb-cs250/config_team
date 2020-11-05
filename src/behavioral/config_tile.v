@@ -8,11 +8,11 @@ module config_tile #(
 
     output [COMB_N-1:0] comb_config,
     output [MEM_N-1:0] mem_config,
-    output comb_set,
-    output mem_set,
+    output comb_set,  // Set signal from set_soft or set_hard depending on which one you're using.
+    output mem_set,   // Gated by second configuration bit, controls whether you set configuration values.
 
-    input set_soft,
-    input set_hard,
+    input set_soft,   // From fabric.
+    input set_hard,   // From tile/column.
     input shift_in_hard,
     input shift_in_soft,
 
