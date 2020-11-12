@@ -49,7 +49,7 @@ module config_tile #(
         .shift_enable(shift_enable),
         .shift_in(shift_in_internal),
         .shift_out(comb_mem_bridge),
-        .config_data({comb_config, internal_config_inter})
+        .config_data({internal_config_inter, comb_config})
     );
 
     shift_chain #(.LENGTH(MEM_N)) mem_shifter (
