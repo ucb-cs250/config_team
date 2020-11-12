@@ -38,7 +38,7 @@ module config_tile #(
         .set(set_internal),
 
         .shifter_data(internal_config_inter),
-        .config_bits({mem_ctrl, input_mux})
+        .config_bits({input_mux, mem_ctrl})
     );
 
     wire comb_mem_bridge;
