@@ -48,9 +48,9 @@ module shift_chain #(
                 .rst(rst),
                 .shift_enable(shift_enable),
                 .shift_in(shift_in),
-                .shift_out(intermediate[0])
+                .shift_out(intermediate[LENGTH - 1])
             );
-            assign shift_out = intermediate[LENGTH - 1];
+            assign shift_out = intermediate[0];
         end
         if (LENGTH > 1) begin
             for (i = 1; i < LENGTH; i = i + 1) begin
@@ -58,8 +58,8 @@ module shift_chain #(
                     .clk(clk),
                     .rst(rst),
                     .shift_enable(shift_enable),
-                    .shift_in(intermediate[i - 1]),
-                    .shift_out(intermediate[i])
+                    .shift_in(intermediate[i]),
+                    .shift_out(intermediate[i - 1])
                 );
             end
         end
