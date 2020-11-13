@@ -15,10 +15,11 @@ module config_tile_tb_top;
   wire [4:0] mconfig_stored;
   reg [4:0] prev_stored_mem;
 
-  wire [12:0] test_sequence_hard = 12'b001111100000;
-  wire [12:0] test_sequence_soft = 12'b111000011101;
-  wire [12:0] test_sequence_memd = 12'b101010101011;
-  wire [12:0] test_sequence_last = 12'b010101010111;
+  wire [12:0] test_sequence_hard = 12'b00_11000_00111; // {input_mux, mem_ctrl}_{comb}_{mem}
+  wire [12:0] test_sequence_soft = 12'b10_00111_11100;
+  wire [12:0] test_sequence_memd = 12'b11_01010_10101;
+  wire [12:0] test_sequence_last = 12'b11_10101_01010;
+
   config_tile #(.COMB_N(5), .MEM_N(5)) DUT(
     .clk(clk),
     .comb_config(cconfig),
@@ -75,25 +76,25 @@ module config_tile_tb_top;
     // Test hard wired input on reset
     shift_enable <= 1;
     for (i = 0; i < 12; i = i + 1) begin
-      shift_in_hard <= test_sequence_hard[11 - i];
+      shift_in_hard <= test_sequence_hard[i];
       #8;
     end
     shift_enable <= 0;
     set_hard <= 1;
     #8;
     set_hard <= 0;
-    if (cconfig_stored !== test_sequence_hard[6:2]) begin
-      $display("Mismatch between combinatorial output, and input bits: comb %h, input %h", cconfig, test_sequence_hard[6:2]);
+    if (cconfig_stored !== test_sequence_hard[9:5]) begin
+      $display("Mismatch between combinatorial output, and input bits: comb %h, input %h", cconfig, test_sequence_hard[9:5]);
     end
-    if (mconfig_stored !== test_sequence_hard[11:7]) begin
-      $display("Mismatch between memory output, and input bits: mem %h, input %h", mconfig, test_sequence_hard[11:7]);
+    if (mconfig_stored !== test_sequence_hard[4:0]) begin
+      $display("Mismatch between memory output, and input bits: mem %h, input %h", mconfig, test_sequence_hard[4:0]);
     end
     #16;
 
     // Switch to soft chain
     shift_enable <= 1;
     for (i = 0; i < 12; i = i + 1) begin
-      shift_in_hard <= test_sequence_soft[11 - i];
+      shift_in_hard <= test_sequence_soft[i];
       #8;
     end
     shift_enable <= 0;
@@ -102,47 +103,47 @@ module config_tile_tb_top;
     #8;
     set_soft <= 0;
     set_hard <= 0;
-    if (cconfig_stored !== test_sequence_soft[6:2]) begin
-      $display("Mismatch between combinatorial output, and input bits: comb %h, input %h", cconfig, test_sequence_soft[6:2]);
+    if (cconfig_stored !== test_sequence_soft[9:5]) begin
+      $display("Mismatch between combinatorial output, and input bits: comb %h, input %h", cconfig, test_sequence_soft[9:5]);
     end
-    if (mconfig_stored !== test_sequence_soft[11:7]) begin
-      $display("Mismatch between memory output, and input bits: mem %h, input %h", mconfig, test_sequence_soft[11:7]);
+    if (mconfig_stored !== test_sequence_soft[4:0]) begin
+      $display("Mismatch between memory output, and input bits: mem %h, input %h", mconfig, test_sequence_soft[4:0]);
     end
     #16;
 
     // Disable memory setting
     shift_enable <= 1;
     for (i = 0; i < 12; i = i + 1) begin
-      shift_in_soft <= test_sequence_memd[11 - i];
+      shift_in_soft <= test_sequence_memd[i];
       #8;
     end
     shift_enable <= 0;
     set_soft <= 1;
     #8;
     set_soft <= 0;
-    if (cconfig_stored !== test_sequence_memd[6:2]) begin
-      $display("Mismatch between combinatorial output, and input bits: comb %h, input %h", cconfig, test_sequence_memd[6:2]);
+    if (cconfig_stored !== test_sequence_memd[9:5]) begin
+      $display("Mismatch between combinatorial output, and input bits: comb %h, input %h", cconfig, test_sequence_memd[9:5]);
     end
-    if (mconfig_stored !== test_sequence_memd[11:7]) begin
-      $display("Mismatch between memory output, and input bits: mem %h, input %h", mconfig, test_sequence_memd[11:7]);
+    if (mconfig_stored !== test_sequence_memd[4:0]) begin
+      $display("Mismatch between memory output, and input bits: mem %h, input %h", mconfig, test_sequence_memd[4:0]);
     end
     #16;
 
     // Test memory disablement
     shift_enable <= 1;
     for (i = 0; i < 12; i = i + 1) begin
-      shift_in_soft <= test_sequence_last[11 - i];
+      shift_in_soft <= test_sequence_last[i];
       #8;
     end
     shift_enable <= 0;
     set_soft <= 1;
     #8;
     set_soft <= 0;
-    if (cconfig_stored !== test_sequence_last[6:2]) begin
-      $display("Mismatch between combinatorial output, and input bits: comb %h, input %h", cconfig, test_sequence_last[6:2]);
+    if (cconfig_stored !== test_sequence_last[9:5]) begin
+      $display("Mismatch between combinatorial output, and input bits: comb %h, input %h", cconfig, test_sequence_last[9:5]);
     end
-    if (mconfig_stored !== test_sequence_memd[11:7]) begin
-      $display("Mismatch between memory output, and old bits: mem %h, input %h", mconfig, test_sequence_memd[11:7]);
+    if (mconfig_stored !== test_sequence_memd[4:0]) begin
+      $display("Mismatch between memory output, and old bits: mem %h, input %h", mconfig, test_sequence_memd[4:0]);
     end
     #16
 
