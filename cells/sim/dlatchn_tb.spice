@@ -1,0 +1,76 @@
+DLatch Simulation
+
+.lib "./sky130_fd_pr/models/sky130.lib.spice" tt 
+
+Vgnd VGND 0 0
+Vdd VPWR VGND 1.8
+
+Ven EN  VGND pulse(0 1.8 0.5n  10p 10p 1n 2n)
+
+Vd  D   VGND pulse(0 1.8 3.75n 10p 10p 5n 10n)
+vdn D_N VGND pulse(1.8 0 3.75n 10p 10p 5n 10n)
+
+// R1 Q VPWR 100k
+// R2 Q_N VPWR 100k
+
+.tran 10e-12 10e-09 0e-00
+
+.control
+run
+plot EN D D_N Q Q_N
+.endc
+
+.subckt dlatchn EN D D_N Q Q_N VGND VPWR NWELL VSUBS
+X0 Q_N EN D_N NWELL sky130_fd_pr__pfet_01v8 w=450000u l=150000u
+X1 Q EN a_70_90# VSUBS sky130_fd_pr__nfet_01v8 w=450000u l=150000u
+X2 D EN Q NWELL sky130_fd_pr__pfet_01v8 w=450000u l=150000u
+X3 Q Q_N VPWR NWELL sky130_fd_pr__pfet_01v8 w=450000u l=150000u
+X4 a_70_90# Q_N VGND VSUBS sky130_fd_pr__nfet_01v8 w=450000u l=150000u
+X5 VPWR Q Q_N NWELL sky130_fd_pr__pfet_01v8 w=450000u l=150000u
+X6 a_n150_90# EN Q_N VSUBS sky130_fd_pr__nfet_01v8 w=450000u l=150000u
+X7 VGND Q a_n150_90# VSUBS sky130_fd_pr__nfet_01v8 w=450000u l=150000u
+C0 EN a_70_90# 0.02fF
+C1 Q a_70_90# 0.03fF
+C2 a_70_90# VGND 0.02fF
+C3 D EN 0.01fF
+C4 EN D_N 0.01fF
+C5 D Q 0.06fF
+C6 Q D_N 0.01fF
+C7 D VGND 0.00fF
+C8 VGND D_N 0.00fF
+C9 EN VPWR 0.14fF
+C10 Q VPWR 0.14fF
+C11 D Q_N 0.01fF
+C12 VGND VPWR 0.00fF
+C13 D NWELL 0.00fF
+C14 D_N Q_N 0.06fF
+C15 D_N NWELL 0.00fF
+C16 EN a_n150_90# 0.02fF
+C17 Q_N VPWR 0.16fF
+C18 VPWR NWELL 0.03fF
+C19 EN Q 0.51fF
+C20 a_n150_90# VGND 0.02fF
+C21 EN VGND 0.39fF
+C22 Q VGND 0.24fF
+C23 a_n150_90# Q_N 0.03fF
+C24 EN Q_N 0.45fF
+C25 Q Q_N 0.46fF
+C26 Q NWELL 0.01fF
+C27 VGND Q_N 0.21fF
+C28 Q_N NWELL 0.01fF
+C29 D VPWR 0.07fF
+C30 D_N VPWR 0.07fF
+C31 VGND VSUBS 0.42fF
+C32 D VSUBS 0.03fF
+C33 VPWR VSUBS 0.41fF
+C34 D_N VSUBS 0.03fF
+C35 Q_N VSUBS 0.42fF
+C36 Q VSUBS 0.43fF
+C37 EN VSUBS 0.67fF
+C38 NWELL VSUBS 0.58fF
+.ends
+
+
+Xdlatchninst EN D D_N Q Q_N VGND VPWR NWELL VSUBS dlatchn
+
+.end
