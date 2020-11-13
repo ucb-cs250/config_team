@@ -3,3 +3,8 @@ a.out
 *.vcd
 config.tcl
 runs/
+
+bsim4v5.out
+*.ext
+dlatchn.spice
+dlatchp.spice
