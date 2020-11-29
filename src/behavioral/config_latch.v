@@ -10,19 +10,47 @@ module config_latch #(
     input [LENGTH-1:0] shifter_data,
     output [LENGTH-1:0] config_bits
 );
-    reg [LENGTH-1:0] stored_bits;
 
-    assign config_bits = stored_bits;
+    genvar i;
+    for (i = 0; i < LENGTH; i = i + 1) begin
+        `ifdef USE_NEGLATCH
+            neglatch neglatch(.clk(clk), .d(shifter_data[i]), .rst(rst), .q(config_bits[i]));
+        `else
+            poslatch poslatch(.clk(clk), .d(shifter_data[i]), .rst(rst), .q(config_bits[i]));
+        `endif
+    end
+endmodule
 
-    always @(posedge clk) begin
+module poslatch #(
+    input clk,
+    input d,
+    input rst,
+    
+    output q
+);
+    always @(posedge clk, rst) begin
         if (rst == 1) begin
-            stored_bits <= 0;
-        end
-        else if (set == 1) begin
-            stored_bits <= shifter_data;
+            q <= 1'b0;
         end
         else begin
-            stored_bits <= stored_bits;
+            q <= d;
+        end
+    end
+endmodule
+
+module neglatch #(
+    input clk,
+    input d,
+    input rst,
+    
+    output q
+);
+    always @(negedge clk, rst) begin
+        if (rst == 1) begin
+            q <= 1'b0;
+        end
+        else begin
+            q <= d;
         end
     end
 endmodule
