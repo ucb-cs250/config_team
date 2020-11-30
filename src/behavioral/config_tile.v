@@ -1,6 +1,6 @@
 module config_tile #(
-    parameter COMB_N = 7,
-    parameter MEM_N = 7
+    parameter COMB_N = 4236,
+    parameter MEM_N = 132
 ) (
     input clk,
     input rst,
