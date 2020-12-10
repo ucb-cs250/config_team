@@ -45,7 +45,7 @@ module wishbone_configuratorinator_tb_top;
         repeat(5) @(posedge clk);
 
 
-        address <= 32'h3000_0001;
+        address <= 32'h3000_0004;
         write_data <= {8'h03, 8'h04, 8'h05, 8'hFF};
         we <= 1;
         transact <= 1;
@@ -57,7 +57,7 @@ module wishbone_configuratorinator_tb_top;
 
         repeat(5) @(posedge clk);
 
-        address <= 32'h3000_0002;
+        address <= 32'h3000_0008;
         write_data <= {8'b00001111, 8'b10101010, 8'b01010101, 8'b11110000};
         we <= 1;
         transact <= 1;
@@ -69,7 +69,7 @@ module wishbone_configuratorinator_tb_top;
         
         repeat(5) @(posedge clk);
 
-        address <= 32'h3000_0002;
+        address <= 32'h3000_0008;
         write_data <= {8'b11110000, 8'b01010101, 8'b10101010, 8'b00001111};
         we <= 1;
         transact <= 1;

@@ -23,7 +23,7 @@ module wishbone_configuratorinator #(
 );
     // Bus decoding
     wire selected;
-    assign selected = (BASE_ADDR[31:2] == wbs_addr_i[31:2]) ? 1'b1 : 1'b0;
+    assign selected = (BASE_ADDR[31:4] == wbs_addr_i[31:4]) ? 1'b1 : 1'b0;
 
     wire transaction_initiated;
     assign transaction_initiated = wbs_stb_i & wbs_cyc_i & selected;
@@ -53,18 +53,18 @@ module wishbone_configuratorinator #(
     // 4 Set output counters, each solves at 255
     reg [7:0] counter_d, counter_c, counter_b, counter_a;
     wire [31:0] counters;
-    assign counters = {bits_d, bits_c, bits_b, bits_a};
+    assign counters = {counter_d, counter_c, counter_b, counter_a};
 
     // Bus Logic
     always @(posedge wb_clk_i) begin
         // Transaction initiation and read transaction management
-        if (transaction_initiated == 1) begin
+        if (transaction_initiated == 1 && !(read_transaction_in_progress || wbs_ack_o)) begin
             read_transaction_in_progress <= 1;
-            if (wbs_addr_i[1:0] == 0) begin
+            if (wbs_addr_i[3:0] == 0) begin
                 wbs_data_o <= house_keeping;
-            end else if (wbs_addr_i[1:0] == 1) begin
+            end else if (wbs_addr_i[3:0] == 4) begin
                 wbs_data_o <= bitstream;
-            end else if (wbs_addr_i[1:0] == 2) begin
+            end else if (wbs_addr_i[3:0] == 8) begin
                 wbs_data_o <= counters;
             end else begin
                 wbs_data_o <= 0;
@@ -80,16 +80,16 @@ module wishbone_configuratorinator #(
 
         // Write management
         if (write_transaction_in_progress == 1) begin
-            if (wbs_addr_i[1:0] == 0) begin
-                free_run <= wbs_data_i[0];
-                if (wbs_sel_i[0] == 1) write_transaction_in_progress <= 0;
-            end else if (wbs_addr_i[1:0] == 1) begin
+            if (wbs_addr_i[3:0] == 0) begin
+                if (wbs_sel_i[0] == 1) free_run <= wbs_data_i[0];
+                write_transaction_in_progress <= 0;
+            end else if (wbs_addr_i[3:0] == 4) begin
                 if (wbs_sel_i[0] == 1) counter_a <= wbs_data_i[7:0];
                 if (wbs_sel_i[1] == 1) counter_b <= wbs_data_i[15:8];
                 if (wbs_sel_i[2] == 1) counter_c <= wbs_data_i[23:16];
                 if (wbs_sel_i[3] == 1) counter_d <= wbs_data_i[31:24];
                 write_transaction_in_progress <= 0;
-            end else if (wbs_addr_i[1:0] == 2) begin
+            end else if (wbs_addr_i[3:0] == 8) begin
                 if (wbs_sel_i[0] == 1) bits_a <= wbs_data_i[7:0];
                 if (wbs_sel_i[1] == 1) bits_b <= wbs_data_i[15:8];
                 if (wbs_sel_i[2] == 1) bits_c <= wbs_data_i[23:16];
