@@ -32,7 +32,7 @@ set ::env(MACRO_PLACEMENT_CFG) $::env(DESIGN_DIR)/macro_placement.cfg
 set ::env(DIODE_INSERTION_STRATEGY) 1
 
 # Synthesis config
-set ::env(SYNTH_STRATEGY) 0
+set ::env(SYNTH_STRATEGY) 3
 
 # Floorplan config
 set ::env(FP_ASPECT_RATIO) 0.25
