@@ -1,7 +1,6 @@
 a.out
 *.gcd
 *.vcd
-config.tcl
 runs/
 
 bsim4v5.out
