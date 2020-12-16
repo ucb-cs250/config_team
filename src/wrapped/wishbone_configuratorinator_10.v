@@ -22,7 +22,8 @@ module wishbone_configuratorinator_10 (
     wishbone_configuratorinator #(.BASE_ADDR(32'h3000_0010)) configy (
         .wb_clk_i(wb_clk_i),
         .wb_rst_i(wb_rst_i),
-        .wbs_stb_i(wb_stb_i),
+        .wbs_stb_i(wbs_stb_i),
+        .wbs_cyc_i(wbs_cyc_i),
         .wbs_we_i(wbs_we_i),
         .wbs_sel_i(wbs_sel_i),
         .wbs_data_i(wbs_data_i),
